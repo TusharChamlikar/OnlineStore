@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:#16273d;
+        }
+        .container{
+            margin-left: auto;
+            margin-right: auto;
+            background-color: bisque;
+            width:40%;
+            text-align: center;
+            border-radius: 12px;
+            border-style: dotted;
+            border-width: 12px;
+        }
+    </style>
+   
+</head>
+<body>
+    <div class="container">
+    <div class="asd">
+        <div class="da">
+            <h2> New Product</h2>
+            <hr>
+            <form method="post" enctype="multipart/form-data" th:object="${productDto}">
+                <div class="row">
+                    <label>NAME</label>
+                    <div class="sd">
+                        <input class="form-control" th:field="${productDto.name}">
+                        <p th:if="${#fields.hasErrors('name')}" th:errorclass="text-danger" th:errors="${productDto.name}"></p>
+                    </div>
+                </div>
+                    <div class="re">
+                        <label class="fs">BRAND</label>
+                        <div class="asd">
+                            <input class ="form-control" th:field="${productDto.brand}">
+                            <p th:if="${#fields.hasErrors('brand')}" th:errorclass="text-danger" th:errors="${productDto.brand}"></p>
+                        </div>
+                    </div>
+                    <div class="fs">
+                        <label class ="dasa">CATEGORY</label>
+                        <div  class="sass">
+                            <select class="form-select" th:field="${productDto.category}">
+                                <option value='Other'>OTHER</option>
+                                <option value='Phones'>PHONES</option>
+                                <option value='Computers'>COMPUTERS</option>
+                                <option value='Accessories'>ACCESSORIES</option>
+                                <option value='Printers'>PRINTERS</option>
+                                <option value='Cameras'>CAMERAS</option>
+                            </select>
+                            <p th:if="${#fields.hasErrors('category')}" th:errorclass="text-danger" th:errors="${productDto.category}"></p>
+                        </div>
+                    </div>
+                    <div class="re">
+                        <label class="fs">PRICE</label>
+                        <div class="asd">
+                            <input class ="form-control" type="number" th:field="${productDto.price}">
+                            <p th:if="${#fields.hasErrors('price')}" th:errorclass="text-danger" th:errors="${productDto.price}"></p>
+                        </div>
+                    </div>
+                    <div class="re">
+                        <label class="fs">DESCRIPTION</label>
+                        <div class="asd">
+                            <input class ="form-control" th:field="${productDto.description}">
+                            <p th:if="${#fields.hasErrors('description')}" th:errorclass="text-danger" th:errors="${productDto.description}"></p>
+                        </div>
+                    </div>
+                    <div class="re">
+                        <label class="fs">IMAGE</label>
+                        <div class="asd">
+                            <input class ="form-control" type="file" th:field="${productDto.imagefile}">
+                            <p th:if="${#fields.hasErrors('imagefile')}" th:errorclass="text-danger" th:errors="${productDto.imagefile}"></p>
+                        </div>
+                    </div>
+                    <div class="sa">
+                        <div class="offset">
+                            <button type="submit" class="btn">SUBMIT</button>
+                        </div>
+                        <div class="fs">
+                            <a class="fsa" href="/products" role="button">CANCEL</a>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
